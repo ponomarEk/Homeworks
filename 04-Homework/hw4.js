@@ -7,7 +7,7 @@ let buff;
 buff=copyStudents[1];
 copyStudents[1]=copyStudents[2];
 copyStudents[2]=buff;
-function makePairs(names){
+const makePairs=(names)=>{
     const result =[];
     for (let i=1;i<names.length;i++) if(i%2!==0) result.push(names.slice(i-1,i+1));
     return result;
@@ -15,7 +15,7 @@ function makePairs(names){
 const pairs = makePairs(copyStudents);
 console.log(`Розбиття на пари: \n`,pairs);
 
-function addThemes(projects,groups){
+const addThemes=(projects,groups)=>{
     const result = [];
     let temp = [];
     for(let i = 0;i<groups.length;i++){
@@ -29,7 +29,7 @@ function addThemes(projects,groups){
 const pairsWithThemes = addThemes(themes,pairs);
 console.log("Пари з темою: \n",pairsWithThemes);
 
-function addMarks(names,value){
+const addMarks=(names,value)=>{
     const result = [];
     let temp=[];
     for (let i=0;i<names.length;i++) {
@@ -43,7 +43,7 @@ function addMarks(names,value){
 const studentWithMarks = addMarks(students,marks);
 console.log("Студенти з оцінкою: \n",studentWithMarks);
 
-function addRandomMarksToPairs(groups){
+const addRandomMarksToPairs=(groups)=>{
     const result = [];
     let temp=[];
     for(let i=0;i<groups.length;i++) {
