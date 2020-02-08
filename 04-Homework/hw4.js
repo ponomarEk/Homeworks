@@ -57,3 +57,9 @@ const addRandomMarksToPairs=(groups)=>{
 const pairsWithMarks = addRandomMarksToPairs(pairsWithThemes);
 console.log("Пари з темою і оцінкою: \n",pairsWithMarks);
 
+let homeworkTemplate = `
+<h3>Розбиття на пари:</h3> Array( ${pairs.length} )  =  [ [ ${makePairs(copyStudents).join(' ] , [ ')} ] ]<br><br>
+<h3>Пари з темою:</h3> Array( ${pairsWithThemes.length} )  =  [ [ ${addThemes(themes,pairs).join(' ] , [ ')} ] ]<br><br>
+<h3>Студенти з оцінкою:</h3> Array( ${studentWithMarks.length} )  =  [ [ ${addMarks(students,marks).join(' ] , [ ')} ] ]<br><br>
+<h3>Пари з темою і оцінкою:</h3> Array( ${pairsWithMarks.length} )  =  [ [ ${addRandomMarksToPairs(pairsWithThemes).join(' ] , [ ')} ] ]s `
+document.writeln(homeworkTemplate);
