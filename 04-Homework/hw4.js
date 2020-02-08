@@ -9,28 +9,24 @@ copyStudents[1]=copyStudents[2];
 copyStudents[2]=buff;
 function makePairs(names){
     const result =[];
-    for (let i=1;i<names.length;i++) {
-        if(i%2!==0){
-            result.push(names.slice(i-1,i+1));
-        }
-    }
+    for (let i=1;i<names.length;i++) if(i%2!==0) result.push(names.slice(i-1,i+1));
     return result;
 }
 const pairs = makePairs(copyStudents);
 console.log(`Розбиття на пари: \n`,pairs);
 
 function addThemes(projects,groups){
-    groups[0].splice(0,2,'Саша и Лена');
-    groups[1].splice(0,2,"Игорь и Ира");
-    groups[2].splice(0,2,"Алексей и Светлана");
+    const result = [];
+    let temp = [];
     for(let i = 0;i<groups.length;i++){
-        groups[i].push(projects[i]);
+        temp.push(groups[i].join(" и "),projects[i]);
+        result.push(temp);
+        temp=[];
     }
-    return groups;
+    return result;
 }
 
-let pairsCopy1 = makePairs(copyStudents);
-const pairsWithThemes = addThemes(themes,pairsCopy1);
+const pairsWithThemes = addThemes(themes,pairs);
 console.log("Пари з темою: \n",pairsWithThemes);
 
 function addMarks(names,value){
@@ -60,3 +56,4 @@ function addRandomMarksToPairs(groups){
 
 const pairsWithMarks = addRandomMarksToPairs(pairsWithThemes);
 console.log("Пари з темою і оцінкою: \n",pairsWithMarks);
+
