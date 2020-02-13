@@ -1,4 +1,7 @@
-const NUMBERS = [1,3.5,-3,6,12,5,0];
+console.log("[ Task 1 ]");
+
+/* 1) Создайте функцию getRandomArray(length, min, max) – которая возвращает массив случайных целых чисел. 
+   В функции есть параметры: length - длина массива, min – минимальное значение целого числа, max – максимальное значение целого числа.*/
 
 const getRandomArray=(length,min,max)=>{
     const result = [];
@@ -8,7 +11,11 @@ const getRandomArray=(length,min,max)=>{
         return result;
     }
 }
-console.log(getRandomArray(15,1,100));
+console.log(`Array of random integer numbers (size = ${getRandomArray(10,1,50).length}) ==> `,getRandomArray(10,1,50));
+
+console.log("[ Task 2 ]");
+
+// 2) Создайте функцию getModa(...numbers) – которая вычисляет моду всех переданных в неё аргументов. НЕЦЕЛЫЕ ЧИСЛА ИГНОРИРУЮТСЯ
 
 const GetModa = (...numbers)=>{
     let test = 0,counter = 0;
@@ -27,7 +34,12 @@ const GetModa = (...numbers)=>{
     if(result.length===1) return result[0];
     else return result;
 }
-console.log(GetModa(...NUMBERS));
+console.log(`Moda of numbers (6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) ==> `,GetModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+console.log(`Moda of numbers (6, 6, 1209, 6, 11, 23, -2, -2, 0, -2) ==> `,GetModa(6,6,1209,6,11,23,-2,-2,0,-2));
+
+console.log("[ Task 3 ]");
+
+// 3) Создайте функцию getAverage(...numbers) – которая считает среднее арифметическое всех переданных в неё аргументов. НЕЦЕЛЫЕ ЧИСЛА ИГНОРИРУЮТСЯ
 
 const getAvarage = (...numbers)=>{
     let counter = 0;
@@ -40,7 +52,11 @@ const getAvarage = (...numbers)=>{
     return RESULT;
     }else return "No integer numbers!";
 }
-console.log(getAvarage(2,55,11,6,78,2,55,77,57,87,23,2,56,3,2));
+console.log(`Avarage of numbers (6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) ==> `,getAvarage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+
+console.log("[ Task 4 ]");
+
+// 4) Создайте функцию getMedian(...numbers) – которая считает медиану всех переданных в неё аргументов. НЕЦЕЛЫЕ ЧИСЛА ИГНОРИРУЮТСЯ
 
 const GetMedian = (...numbers)=>{
     const intSorted=[];
@@ -52,49 +68,72 @@ const GetMedian = (...numbers)=>{
     return result;
 
 }
-console.log(GetMedian(...NUMBERS));
+console.log(`Median of numbers (6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) ==> `,GetMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+console.log(`Median of numbers (1, 2, 3, 4, 5) ==> `,GetMedian(1, 2, 3, 4, 5));
+console.log(`Median of numbers (1, 2, 3, 4) ==> `,GetMedian(1, 2, 3, 4));
+
+console.log("[ Task 5 ]");
+
+// 5) Создайте функцию filterEvenNumbers(...numbers) – которая фильтрует четные числа переданные как аргументы функции
 
 const filterEvenNumbers = (...numbers)=>{
     const filtered = numbers.filter(curr=>curr%1===0);
     const result = filtered.filter(curr=>curr%2!==0);
     return result;
 }
-console.log(filterEvenNumbers(...NUMBERS));
+console.log(`Odd numbers from (6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) ==> `,filterEvenNumbers(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+
+console.log("[ Task 6 ]");
+
+// 6) Создайте функцию countPositiveNumbers(...numbers) – которая посчитает количество числел больших 0
 
 const countPositiveNumbers = (...numbers)=>{
     const positive = numbers.filter(curr=>curr>0);
     return positive.length;
 }
-console.log(countPositiveNumbers(...NUMBERS));
+console.log(`Count of positive numbers (6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) ==> `,countPositiveNumbers(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+
+console.log("[ Task 7 ]");
+
+// 7) Создайте функцию getDividedByFive(...numbers) – которая отфильтрует все элементы в массиве и оставит только те, которые делятся нацело на 5
 
 const getDividedByFive = (...numbers)=>{
      const result = numbers.filter(curr=>curr%5===0);
      return result;
 }
-console.log(getDividedByFive(...NUMBERS));
+console.log(`Numbers divided by five (6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) ==> `,getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
-const replaceBadWords = (string)=>{
-    const splited = string.split(' ');
-    let n;
+/* 8) Создайте функцию replaceBadWords(string) – которая 1) разобьет фразу на слова, 2) заменит плохие слова на звездочки (*).
+ При решении этого задания необходимо разбить массив на слова с помощью функции .split(" "), после чего массив необходимо будет склеить .join(" ")
+  Плохие слова: shit и fuck. Предусмотрите возможность расширять список этих слов в будущем.*/
+
+  console.log("[ Task 8 ]");
+
+function testIsBadWord(word,badWord){
+    let test = word;
+    while(test.search(badWord)!==-1)test = test.replace(badWord,"*".repeat(badWord.length));
+    return test;       
+}
+
+const replaceBadWords=(string)=>{
+    const splited = string.split(" ");
+    const badWords = ["shit","fuck"];
+    let temp;
     const result = splited.map(curr=>{
-        let temp;
-        if(curr.search("fuck")!==-1){
-            temp = '';
-            n = curr.search("fuck");
-            for(let i = 0;i<curr.length;i++)(i>=n&&i<=n+3)?temp+="*":temp+=curr[i];
-            return temp;
-        }else if(curr.search("shit")!==-1){
-            temp = ''
-            n =curr.search("shit");
-            for(let i = 0;i<curr.length;i++)(i>=n&&i<=n+3)?temp+="*":temp+=curr[i];
-            return temp;
-        }else return curr;
-    })
+        temp = curr;
+        for(let i =0;i<badWords.length;i++)temp = testIsBadWord(temp,badWords[i]);
+        return temp;
+    });
     return result.join(" ");
 }
-console.log(replaceBadWords("Are you fucking kidding?"));
-console.log(replaceBadWords("Holly shit!"));
-console.log(replaceBadWords("It's bullshit!"));
+console.log("Are you fucking kidding? ==> ",replaceBadWords("Are you fucking kidding?"));
+console.log("Holly shit! ==> ",replaceBadWords("Holly shit!"));
+console.log("It's bullshit! ==> ",replaceBadWords("It's bullshit!"));
+
+console.log("[ Task 9 ]");
+
+/*Создайте функцию divideByThree(word), которая разбивает каждое слово на условные слоги по 3 буквы. 
+Если букв меньше трёх – не разбиваем.Пробелы всегда удаляются. Строка приводится к нижнему регистру.*/
 
 const divideByThree = (word)=>{
     word = word.toLowerCase();
@@ -113,40 +152,53 @@ const divideByThree = (word)=>{
     for(let i =0;i<mapped.length;i++)result=result.concat(mapped[i]);
     return result;
 }
-console.log(divideByThree(" SLDFLSDJFSL"));
+console.log("Word divided by three ('Commander') ==> ",divideByThree("Commander"));
+console.log("Word divided by three ('live') ==> ",divideByThree("live"));
+
+console.log("[ Task 10 ]");
+
+/*Создайте функцию generateCombinations(word), которая выдаст все возможные перестановки(уникальные, без повторений) букв в слове.
+ Для тестов не передавайте слова в которых больше 10 букв. Лучше вообще ограничить работу функции 10 буквами.*/
 
 const factorial=(num)=>{
     if (num === 0)return 1;
     else return num * factorial(num - 1);
 }
 const generateCombination=(word)=>{
-    let combination,temp = [],indexes=[],index,i=0;
+    let combination,buff=[],temp = [],indexes=[],index,i=0;
     const result=[];
     if(word.length>10)return "too many letters";
     else{
-        const allCombinationsNumber = word.length*factorial(word.length-1);
+        let allCombinationsNumber = factorial(word.length);
         const splitedWord = word.split("");
         const getIndex =()=>Math.floor(Math.random()*splitedWord.length);
+        let complexIndex ='',complexIndexGroup=[];
         while(i<allCombinationsNumber){
             temp=[];
             indexes=[];
+            buff =''
             while(temp.length<splitedWord.length){
                 index = getIndex();
                 if(!indexes.includes(index)){
                     temp.push(splitedWord[index]);
                     indexes.push(index);
+                    complexIndex+=index;
+                    buff+=index;
                 }
             }
+            complexIndex+=" ";
             temp=temp.join("");
             combination = temp;
             if(!result.includes(combination)){
                 result.push(combination);
                 i++;
-            }
+            }else if(result.includes(combination)&&complexIndexGroup.includes(buff));
+            else allCombinationsNumber--; 
+            complexIndexGroup = complexIndex.split(" ");
         }
         return result;
     }
 }
-console.log(generateCombination("lo"));
-console.log(generateCombination("man"));
-console.log(generateCombination("abcd"));
+console.log("All unique combinations number of word ('ol') ==> ",generateCombination("ol"));
+console.log("All unique combinations number of word ('man') ==> ",generateCombination("man"));
+console.log("All unique combinations number of word ('oksana') ==> ",generateCombination("oksana"));
