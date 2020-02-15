@@ -76,7 +76,7 @@ const getStudentInfo = (student)=>{
     }
 return result;
 }
-console.log("Student's information ==> ",getStudentInfo(students[0]));
+console.log(`Student's information ==> ${JSON.stringify(getStudentInfo(students[0]))}`);
 
 console.log(" Task 4 ");
 
@@ -84,7 +84,7 @@ console.log(" Task 4 ");
  – которая выводит имена студентов в алфавитном порядке. */
 
 const getStudentsNames = (students)=>{
-    const sortedNames = students.map(curr=>curr.name).sort((prev,curr)=>prev[0]>curr[0]);
+    const sortedNames = students.map(curr=>curr.name).sort();
     return sortedNames;
 }
 console.log("Names sorted for alphabet ==> ",getStudentsNames(students));
@@ -122,4 +122,4 @@ const calculateWordLetters = (word)=>{
     }
 return result;
 }
-console.log("Count of each letter (Test) ==> ",calculateWordLetters("Test"));
+console.log(`Count of word letters('тест') --> ${JSON.stringify(calculateWordLetters('тест'))}`);
