@@ -76,7 +76,7 @@ const getStudentInfo = (student)=>{
     }
 return result;
 }
-console.log(`Student's information ==> ${JSON.stringify(getStudentInfo(students[0]))}`);
+console.log(`Student's information ==> `,getStudentInfo(students[0]));
 
 console.log(" Task 4 ");
 
@@ -120,4 +120,4 @@ const calculateWordLetters = (word)=>{
     }
 return result;
 }
-console.log(`Count of word letters('Test') ==> ${JSON.stringify(calculateWordLetters('Test'))}`);
+console.log(`Count of word letters('Test') ==> `,calculateWordLetters('Test'));
