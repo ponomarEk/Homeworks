@@ -84,7 +84,7 @@ console.log(" Task 4 ");
  – которая выводит имена студентов в алфавитном порядке. */
 
 const getStudentsNames = (students)=>{
-    const sortedNames = students.map(curr=>curr.name).sort((prev,curr)=>prev[0]>curr[0]);
+    const sortedNames = students.map(curr=>curr.name).sort();
     return sortedNames;
 }
 console.log("Names sorted for alphabet ==> ",getStudentsNames(students));
