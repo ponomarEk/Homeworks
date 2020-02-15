@@ -83,10 +83,8 @@ console.log(" Task 4 ");
 /* 4) Создайте функцию getStudentsNames(students) --> ["Anton", "Tanya", "Victor"]
  – которая выводит имена студентов в алфавитном порядке. */
 
-const getStudentsNames = (students)=>{
-    const sortedNames = students.map(curr=>curr.name).sort();
-    return sortedNames;
-}
+const getStudentsNames = (students)=>students.map(curr=>curr.name).sort();
+
 console.log("Names sorted for alphabet ==> ",getStudentsNames(students));
 
 console.log(" Task 5 ");
@@ -122,4 +120,4 @@ const calculateWordLetters = (word)=>{
     }
 return result;
 }
-console.log(`Count of word letters('Test') --> ${JSON.stringify(calculateWordLetters('Test'))}`);
+console.log(`Count of word letters('Test') ==> ${JSON.stringify(calculateWordLetters('Test'))}`);
