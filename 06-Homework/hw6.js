@@ -122,4 +122,4 @@ const calculateWordLetters = (word)=>{
     }
 return result;
 }
-console.log(`Count of word letters('тест') --> ${JSON.stringify(calculateWordLetters('тест'))}`);
+console.log(`Count of word letters('Test') --> ${JSON.stringify(calculateWordLetters('Test'))}`);
