@@ -24,6 +24,12 @@ const students = [{
     }
   }];
 
+
+/* 1) Создайте функцию getSubjects(students[0] --> ["Math", "Algorithms", "Data science"] - которая 
+выводит список предметов для конкретного студента. 
+Обратите внимание – название предмета необходимо выводить с большой буквы, а _ – заменить на пробел*/
+
+console.log(" Task 1 ");
 const getSubjects = (student)=>{
     let keys;
     for(let i = 0;i<students.length;i++)if(students[i].name===student.name)keys = Object.keys(student.subjects);
@@ -34,7 +40,13 @@ const getSubjects = (student)=>{
     });
     return result;
 }
-console.log(getSubjects(students[2]));
+console.log("Subjects ==> ",getSubjects(students[0]));
+
+console.log(" Task 2 ");
+
+/* 2) Создайте функцию getAverageMark(students[0]) --> 3.79 – которая выведет среднюю оценку
+ по всем предметам для переданного студента НЕ МАССИВА СТУДЕНТОВ.
+ Оценку округлите до 2ого знака. Можно использовать функции написанные в предыдущих домашних заданиях :)*/
 
 const getAverageMark=(student)=>{
     let values,counter=0;
@@ -47,18 +59,13 @@ const getAverageMark=(student)=>{
     const AVARAGE_MARK = (sumOfMarks/counter).toFixed(2);
     return +AVARAGE_MARK;
 }
-console.log(getAverageMark(students[1]));
+console.log("Average mark ==> ",getAverageMark(students[0]));
 
-const calculateWordLetters = (word)=>{
-    let result={},buff;
-    for(let i = 0;i<word.length;i++){
-        let counter=0 
-        for(let j =word.length-1;j>=0;j--)if(word[j].toUpperCase()===word[i].toUpperCase())counter++;
-        result[word[i].toLowerCase()] = counter;
-    }
-return result;
-}
-console.log(calculateWordLetters("Test"));
+console.log(" Task 3 ");
+
+/* 3) Создайте функцию getStudentInfo(students[0]) --> { "course": 3, "name": "Tanya", "averageMark": 3.79} – 
+которая выводит информацию общего вида по переданному студенту (вам пригодится функция из предыдущего задания).
+Должна быть выведена информация: курс, имя, средняя оценка.*/
 
 const getStudentInfo = (student)=>{
     let result={};
@@ -69,24 +76,50 @@ const getStudentInfo = (student)=>{
     }
 return result;
 }
-console.log(getStudentInfo(students[2]));
+console.log("Student's information ==> ",getStudentInfo(students[0]));
 
-const getBestName = (students)=>{
-    let nameOf=" ";
+console.log(" Task 4 ");
+
+/* 4) Создайте функцию getStudentsNames(students) --> ["Anton", "Tanya", "Victor"]
+ – которая выводит имена студентов в алфавитном порядке. */
+
+const getStudentsNames = (students)=>{
+    const sortedNames = students.map(curr=>curr.name).sort((prev,curr)=>prev[0]>curr[0]);
+    return sortedNames;
+}
+console.log("Names sorted for alphabet ==> ",getStudentsNames(students));
+
+console.log(" Task 5 ");
+
+/* 5) Создайте функцию getBestStudent(students) --> "Anton" 
+– которая выводит лучшего студента из списка по показателю средней оценки. */
+
+const getBestStudent = (students)=>{
+    let nameOfStudent;
     let bestMark = -1;
     for(let i =0;i<students.length;i++){
-        let stud = getStudentInfo(students[i]);
-        if(stud.averageMark>bestMark){
-            bestMark=stud.averageMark;
-            nameOf=stud.name;
+        let student = getStudentInfo(students[i]);
+        if(student.averageMark>bestMark){
+            bestMark=student.averageMark;
+            nameOfStudent=student.name;
         }
     }
-    return nameOf;
+    return nameOfStudent;
 }
-console.log(getBestName(students));
+console.log("Best student's name ==> ",getBestStudent(students));
 
-const getNames = (students)=>{
-    const sorted = students.map(curr=>curr.name).sort((prev,curr)=>prev[0]<curr[0]);
-    return sorted;
+console.log(" Task 6 ");
+
+/* 6) Создайте функцию calculateWordLetters("тест") --> { "т": 2, "е": 1, "с": 1 } 
+– которая считает какое количество раз буква повторяется в слове. */
+
+const calculateWordLetters = (word)=>{
+    let result={};
+    for(let i = 0;i<word.length;i++){
+        let counter=0 
+        for(let j =word.length-1;j>=0;j--)if(word[j].toUpperCase()===word[i].toUpperCase())counter++;
+        result[word[i].toLowerCase()] = counter;
+    }
+return result;
 }
-console.log(getNames(students));
+console.log("Count of each letter (Test) ==> ",calculateWordLetters("Test"));
