@@ -86,8 +86,7 @@ const getBestName = (students)=>{
 console.log(getBestName(students));
 
 const getNames = (students)=>{
-    const mapped = students.map(curr=>curr.name);
-    const sorted = mapped.sort((prev,curr)=>prev[0]>curr[0]);
+    const sorted = students.map(curr=>curr.name).sort((prev,curr)=>prev[0]<curr[0]);
     return sorted;
 }
 console.log(getNames(students));
