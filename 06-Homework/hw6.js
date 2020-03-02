@@ -32,9 +32,15 @@ const students = [{
 console.log(" Task 1 ");
 const getSubjects = (student)=>{
     let keys;
-    for(let i = 0;i<students.length;i++)if(students[i].name===student.name)keys = Object.keys(student.subjects);
+    for(let i = 0;i<students.length;i++){
+        if(students[i].name===student.name){
+            keys = Object.keys(student.subjects);
+        }
+    }
     const result = keys.map(curr=>{
-        if(curr.search('_')!==-1)curr=curr.replace("_"," ");
+        if(curr.search('_')!==-1){
+            curr=curr.replace("_"," ");
+        }
         curr=curr[0].toUpperCase()+curr.slice(1);
         return curr;
     });
@@ -50,9 +56,15 @@ console.log(" Task 2 ");
 
 const getAverageMark=(student)=>{
     let values,counter=0;
-    for(let i = 0;i<students.length;i++)if(students[i].name===student.name)values = Object.values(student.subjects);
+    for(let i = 0;i<students.length;i++){
+        if(students[i].name===student.name){
+            values = Object.values(student.subjects);
+        }
+    }
     const sumOfMarks = values.reduce((acc,curr)=>{
-        for(let i =0;i<curr.length;i++)acc+=curr[i];
+        for(let i =0;i<curr.length;i++){
+            acc+=curr[i];
+        }
         counter+=curr.length;
         return acc;
     },0);
@@ -69,12 +81,14 @@ console.log(" Task 3 ");
 
 const getStudentInfo = (student)=>{
     let result={};
-    for(let i = 0;i<students.length;i++)if(students[i].name===student.name){
-        result.course=student.course;
-        result.name=student.name;
-        result.averageMark = getAverageMark(student);
+    for(let i = 0;i<students.length;i++){
+        if(students[i].name===student.name){
+            result.course=student.course;
+            result.name=student.name;
+            result.averageMark = getAverageMark(student);
+        }
     }
-return result;
+    return result;
 }
 console.log(`Student's information ==> `,getStudentInfo(students[0]));
 
@@ -115,7 +129,11 @@ const calculateWordLetters = (word)=>{
     let result={};
     for(let i = 0;i<word.length;i++){
         let counter=0 
-        for(let j =word.length-1;j>=0;j--)if(word[j].toUpperCase()===word[i].toUpperCase())counter++;
+        for(let j =word.length-1;j>=0;j--){
+            if(word[j].toUpperCase()===word[i].toUpperCase()){
+                counter++;
+            }
+        }
         result[word[i].toLowerCase()] = counter;
     }
 return result;
