@@ -17,7 +17,6 @@ html{
 .container{
 	width: 90%;
 	margin: 0 auto;
-	border:solid red;
 	margin-top:200px;
 
 }
@@ -29,7 +28,6 @@ html{
 
 .buttons{
 	margin: 20px;
-	border:solid black;
 	top: 50%;
 	left: 50%;
 	text-align: center;
