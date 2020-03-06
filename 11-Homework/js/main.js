@@ -14,6 +14,8 @@ async function getRandomChinese(length){
 		});
 		i++;
 	}
-	console.log(temp);
+	return temp;
 };
-getRandomChinese(4);
+getRandomChinese(4).then((b)=>{
+	console.log(b);
+});
