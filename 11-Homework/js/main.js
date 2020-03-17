@@ -19,4 +19,7 @@ async function getRandomChinese(length){
 getRandomChinese(4).then((b)=>{
 	console.log(b);
 });
+<<<<<<< HEAD
 setTimeout(()=>console.log("jgj"),250);
+=======
+>>>>>>> 0dc7b72fcbd8223da8a8088977fcef508be93785
