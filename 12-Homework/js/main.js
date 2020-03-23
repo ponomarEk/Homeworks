@@ -11,6 +11,7 @@ function click(){
     let promise = new Promise(async function(resolve,reject){
         container.innerHTML='';
         const res = await axios.get(API+"films/"+episode.value+"/");
+        console.log(res)
         episode.value='';
         console.log(res.data);
         resolve(res.data.characters);
@@ -69,6 +70,9 @@ next.addEventListener("click",function(){
 })
 getPlanets().then(showPlanets);
 
-
+let wookie = document.querySelector(".wookie");
+wookie.addEventListener("click",function(){
+    
+})
 
 
