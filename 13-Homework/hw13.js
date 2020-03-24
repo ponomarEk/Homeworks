@@ -16,8 +16,10 @@ function* newFontGenerator(fontSize){
         let buff = yield fontSize;
         if(buff==="up"){
             fontSize+=2;
+            document.body.style.fontSize = fontSize+'px';
         }else if(buff==="down" && fontSize>2){
             fontSize-=2;
+            document.body.style.fontSize = fontSize+'px';
         }
     }
 }
